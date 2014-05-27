@@ -6,43 +6,55 @@
 //  Copyright (c) 2014 Florian Friedrich. All rights reserved.
 //
 
-#import "FFUDProperty.h"
+#import "FFUDProperty+Internal.h"
 #import "NSString+CamelCase.h"
 #import <objc/runtime.h>
+
+static NSString *const FFUDKeyPrefix = @"FFUD";
+
+extern NSString *FFUDKeyForPropertyName(NSString *propertyName)
+{
+    return [FFUDKeyPrefix stringByAppendingString:propertyName];
+}
+
+extern NSString *FFUDPropertyNameForUDKey(NSString *userDefaultsKey)
+{
+    return [userDefaultsKey substringFromIndex:FFUDKeyPrefix.length];
+}
 
 @interface FFUDProperty ()
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *shortType;
 @property (nonatomic, strong) NSString *fullType;
-@property (nonatomic, getter = isPrimitive) BOOL primitive;
 @property (nonatomic, strong) NSString *instanceVariable;
 @property (nonatomic, strong) NSString *getter;
 @property (nonatomic, strong) NSString *setter;
+@property (nonatomic, getter = isPrimitive) BOOL primitive;
 @property (nonatomic, getter = isReadonly) BOOL readonly;
 @property (nonatomic, getter = isNonatomic) BOOL nonatomic;
 @property (nonatomic, getter = isDynamic) BOOL dynamic;
 @property (nonatomic, getter = isCopy) BOOL copy;
 @property (nonatomic, getter = isWeak) BOOL weak;
 @property (nonatomic, getter = isStrong) BOOL strong;
-+ (NSString *)fullTypeForPrimitiveShortType:(NSString *)type;
 @end
 
 @implementation FFUDProperty
 
 + (NSString *)fullTypeForPrimitiveShortType:(NSString *)type
 {
-    return @{@"c": @"char",
+    NSDictionary *types =  @{@"c": @"char",
              @"d": @"double",
              @"i": @"int",
              @"f": @"float",
              @"l": @"long",
              @"s": @"short",
              @"B": @"bool",
-             @"I": @"unsigned",
+             @"I": @"unsignedInt",
              @"Q": @"unsignedInteger"
-             }[type];
+             };
     //    @{@"^?": @"function pointer",
     //      @"^v", @"void pointer"};
+    return types[type];
 }
 
 #pragma mark - NSSecureCoding
@@ -98,6 +110,7 @@
     [desc appendFormat:@"    - instance variable: %@\r", self.instanceVariable];
     [desc appendFormat:@"    - getter: %@\r", self.getter];
     [desc appendFormat:@"    - setter: %@\r", self.setter];
+    [desc appendFormat:@"    - primitive: %@\r", StringFromBOOL(self.isPrimitive)];
     [desc appendFormat:@"    - readonly: %@\r", StringFromBOOL(self.isReadonly)];
     [desc appendFormat:@"    - nonatomic: %@\r", StringFromBOOL(self.isNonatomic)];
     [desc appendFormat:@"    - dynamic: %@\r", StringFromBOOL(self.isDynamic)];
@@ -142,9 +155,39 @@
 - (NSString *)userDefaultsKey
 {
     NSString *camelCaseName = [self.name camelCaseString];
-    NSString *prefix = @"FFUD";
-    NSString *key = [prefix stringByAppendingString:camelCaseName];
+    NSString *key = [FFUDKeyPrefix stringByAppendingString:camelCaseName];
     return key;
+}
+
+- (NSString *)getterFormat
+{
+    NSString *standardFormat = @"@:";
+    if (self.isPrimitive) {
+        return [NSString stringWithFormat:@"%@%@", self.shortType, standardFormat];
+    } else {
+        if ([self.shortType isEqualToString:@"@"]) {
+            return [NSString stringWithFormat:@"@%@", standardFormat];
+        } else {
+            return [NSString stringWithFormat:@"@\"%@\"%@", self.shortType, standardFormat];
+//            return [NSString stringWithFormat:@"@%@", standardFormat];
+        }
+        
+    }
+}
+
+- (NSString *)setterFormat
+{
+    NSString *standardFormat = @"v@:";
+    if (self.isPrimitive) {
+        return [NSString stringWithFormat:@"%@%@", standardFormat, self.shortType];
+    } else {
+        if ([self.shortType isEqualToString:@"@"]) {
+            return [NSString stringWithFormat:@"%@@", standardFormat];
+        } else {
+            return [NSString stringWithFormat:@"%@@\"%@\"", standardFormat, self.shortType];
+//            return [NSString stringWithFormat:@"%@@", standardFormat];
+        }
+    }
 }
 
 @end

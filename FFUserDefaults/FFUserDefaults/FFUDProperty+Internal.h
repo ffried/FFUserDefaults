@@ -9,6 +9,7 @@
 #import "FFUDProperty.h"
 
 @interface FFUDProperty (Internal)
+
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *shortType;
 @property (nonatomic, strong) NSString *fullType;
@@ -24,5 +25,9 @@
 @property (nonatomic, getter = isWeak) BOOL weak;
 @property (nonatomic, getter = isStrong) BOOL strong;
 
+@property (nonatomic, strong, readonly) NSString *getterFormat;
+@property (nonatomic, strong, readonly) NSString *setterFormat;
+
 + (NSString *)fullTypeForPrimitiveShortType:(NSString *)type;
+
 @end

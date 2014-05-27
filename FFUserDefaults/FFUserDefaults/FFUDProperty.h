@@ -24,6 +24,4 @@
 @property (nonatomic, readonly, getter = isWeak) BOOL weak;
 @property (nonatomic, readonly, getter = isStrong) BOOL strong;
 
-@property (nonatomic, strong, readonly) NSString *userDefaultsKey;
-
 @end

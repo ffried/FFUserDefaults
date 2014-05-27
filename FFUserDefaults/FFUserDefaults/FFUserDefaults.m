@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Florian Friedrich. All rights reserved.
 //
 
-#import "FFUserDefaults.h"
+#import "FFUserDefaults+Internal.h"
 #import "FFUDProperty+Internal.h"
 #import "FFUDImplementationFactory.h"
 #import <objc/runtime.h>
@@ -32,7 +32,9 @@ extern NSArray *FFUDPropertiesOfClass(Class class) {
 
 @implementation FFUserDefaults
 static void *FFUDKVOContext = &FFUDKVOContext;
+static NSString *const FFNSUDValuesPrefix = @""; // Just in case NSUserDefaults KVOing ever needs the values. prefix again, just put it here.
 
+#pragma mark - Initializer
 - (instancetype)initWithDefaults:(NSDictionary *)defaults
 {
     self = [super init];
@@ -40,9 +42,12 @@ static void *FFUDKVOContext = &FFUDKVOContext;
         if (defaults) {
             [self.userDefaults registerDefaults:defaults];
         }
-        //        self.properties = FFUDPropertiesOfClass([self class]);
-        NSLog(@"Properties of %@:\n%@", NSStringFromClass([self class]), [[self class] dynamicProperties]);
         [self setupObservers];
+        [[[self class] dynamicProperties] enumerateObjectsUsingBlock:^(FFUDProperty *property, NSUInteger idx, BOOL *stop) {
+            [[self class] resolveInstanceMethod:NSSelectorFromString(property.getter)];
+            [[self class] resolveInstanceMethod:NSSelectorFromString(property.setter)];
+        }];
+//        NSLog(@"Properties of %@:\n%@", NSStringFromClass([self class]), [[self class] dynamicProperties]);
     }
     return self;
 }
@@ -57,24 +62,22 @@ static void *FFUDKVOContext = &FFUDKVOContext;
 #pragma mark - Method handling
 + (BOOL)resolveInstanceMethod:(SEL)sel
 {
-    NSLog(@"%@%@", NSStringFromSelector(_cmd), NSStringFromSelector(sel));
-    
     NSArray *dynamicProperties = [self dynamicProperties];
-    NSArray *getters = [dynamicProperties valueForKey:@"getter"];
+    NSArray *getters = [self dynamicGetters];
     if ([getters containsObject:NSStringFromSelector(sel)]) {
         FFUDProperty *prop = dynamicProperties[[getters indexOfObject:NSStringFromSelector(sel)]];
-        NSString *type = [prop.shortType stringByAppendingString:@"@:"];
+        NSString *type = prop.getterFormat;
         IMP implementation = [FFUDImplementationFactory getterForProperty:prop];
-        if (implementation == NULL) return NO; // TODO: Better handling
+        if (implementation == NULL) return [super resolveInstanceMethod:sel]; // TODO: Better handling
         class_addMethod(self, sel, implementation, [type UTF8String]);
         return YES;
     }
-    NSArray *setters = [dynamicProperties valueForKey:@"setter"];
+    NSArray *setters = [self dynamicSetters];
     if ([setters containsObject:NSStringFromSelector(sel)]) {
         FFUDProperty *prop = dynamicProperties[[setters indexOfObject:NSStringFromSelector(sel)]];
-        NSString *type = [@"v@:" stringByAppendingString:prop.shortType];
+        NSString *type = prop.setterFormat;
         IMP implementation = [FFUDImplementationFactory setterForProperty:prop];
-        if (implementation == NULL) return NO; // TODO: Better handling
+        if (implementation == NULL) return [super resolveInstanceMethod:sel]; // TODO: Better handling
         class_addMethod(self, sel, implementation, [type UTF8String]);
         return YES;
     }
@@ -113,6 +116,43 @@ static void *FFUDKVOContext = &FFUDKVOContext;
     return dynamicProperties;
 }
 
++ (NSArray *)dynamicGetters
+{
+    static NSMutableDictionary *FFUDDynamicClassGetters = nil;
+    if (!FFUDDynamicClassGetters) {
+        FFUDDynamicClassGetters = [NSMutableDictionary dictionary];
+    }
+    NSArray *getters = FFUDDynamicClassGetters[NSStringFromClass(self)];
+    if (!getters) {
+        NSArray *dynamic = [self dynamicProperties];
+        NSMutableArray *m_getters = [NSMutableArray array];
+        [dynamic enumerateObjectsUsingBlock:^(FFUDProperty *p, NSUInteger idx, BOOL *stop) {
+            [m_getters addObject:p.getter];
+        }];
+        getters = [NSArray arrayWithArray:m_getters];
+        FFUDDynamicClassGetters[NSStringFromClass(self)] = getters;
+    }
+    return getters;
+}
+
++ (NSArray *)dynamicSetters
+{
+    static NSMutableDictionary *FFUDDynamicClassSetters = nil;
+    if (!FFUDDynamicClassSetters) {
+        FFUDDynamicClassSetters = [NSMutableDictionary dictionary];
+    }
+    NSArray *setters = FFUDDynamicClassSetters[NSStringFromClass(self)];
+    if (!setters) {
+        NSArray *dynamic = [self dynamicProperties];
+        NSMutableArray *m_setters = [NSMutableArray array];
+        [dynamic enumerateObjectsUsingBlock:^(FFUDProperty *p, NSUInteger idx, BOOL *stop) {
+            [m_setters addObject:p.setter];
+        }];
+        setters = [NSArray arrayWithArray:m_setters];
+    }
+    return setters;
+}
+
 #pragma mark - Properties
 - (NSUserDefaults *)userDefaults
 {
@@ -123,11 +163,12 @@ static void *FFUDKVOContext = &FFUDKVOContext;
 - (void)setupObservers
 {
     NSUserDefaults *userDefaults = self.userDefaults;
-    NSArray *keys = [[[self class] dynamicProperties] valueForKey:@"name"];
-    [keys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
-        NSString *keyPath = [@"values." stringByAppendingString:key];
+    NSArray *properties = [[self class] dynamicProperties];
+    [properties enumerateObjectsUsingBlock:^(FFUDProperty *property, NSUInteger idx, BOOL *stop) {
+        NSString *key = FFUDKeyForPropertyName(property.name);
+        NSString *keyPath = [FFNSUDValuesPrefix stringByAppendingString:key];
         [userDefaults addObserver:self forKeyPath:keyPath
-                          options:(NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew)
+                          options:NSKeyValueObservingOptionNew
                           context:FFUDKVOContext];
     }];
 }
@@ -135,9 +176,10 @@ static void *FFUDKVOContext = &FFUDKVOContext;
 - (void)tearDownObservers
 {
     NSUserDefaults *userDefaults = self.userDefaults;
-    NSArray *keys = [[[self class] dynamicProperties] valueForKey:@"name"];
-    [keys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
-        NSString *keyPath = [@"values." stringByAppendingString:key];
+    NSArray *properties = [[self class] dynamicProperties];
+    [properties enumerateObjectsUsingBlock:^(FFUDProperty *property, NSUInteger idx, BOOL *stop) {
+        NSString *key = FFUDKeyForPropertyName(property.name);
+        NSString *keyPath = [FFNSUDValuesPrefix stringByAppendingString:key];
         [userDefaults removeObserver:self forKeyPath:keyPath context:FFUDKVOContext];
     }];
 }
@@ -147,7 +189,8 @@ static void *FFUDKVOContext = &FFUDKVOContext;
 {
     if (context == FFUDKVOContext) {
         if (object == self.userDefaults) {
-            NSString *key = [keyPath substringFromIndex:@"values.".length];
+            NSString *key = [keyPath substringFromIndex:FFNSUDValuesPrefix.length];
+            key = FFUDPropertyNameForUDKey(key);
             [self willChangeValueForKey:key];
             [self didChangeValueForKey:key];
         }

@@ -18,6 +18,7 @@
 		070DFADF1934A72C004D958C /* FFUDProperty+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFADD1934A72C004D958C /* FFUDProperty+Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		070DFAE91934AB99004D958C /* FFUDImplementationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFAE71934AB99004D958C /* FFUDImplementationFactory.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		070DFAEA1934AB99004D958C /* FFUDImplementationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFAE81934AB99004D958C /* FFUDImplementationFactory.m */; };
+		077D49861934FAFD00E0AFC3 /* FFUserDefaults+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D49841934FAFD00E0AFC3 /* FFUserDefaults+Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		07856EF719291CB200DD7061 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07856EBD19291C4700DD7061 /* Foundation.framework */; };
 		07856EFC19291CB200DD7061 /* FFUserDefaults.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 07856EFB19291CB200DD7061 /* FFUserDefaults.h */; };
 		07856EFE19291CB200DD7061 /* FFUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 07856EFD19291CB200DD7061 /* FFUserDefaults.m */; };
@@ -72,6 +73,7 @@
 		070DFADD1934A72C004D958C /* FFUDProperty+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FFUDProperty+Internal.h"; sourceTree = "<group>"; };
 		070DFAE71934AB99004D958C /* FFUDImplementationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFUDImplementationFactory.h; sourceTree = "<group>"; };
 		070DFAE81934AB99004D958C /* FFUDImplementationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFUDImplementationFactory.m; sourceTree = "<group>"; };
+		077D49841934FAFD00E0AFC3 /* FFUserDefaults+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FFUserDefaults+Internal.h"; sourceTree = "<group>"; };
 		07856EBD19291C4700DD7061 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		07856EBF19291C4700DD7061 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		07856EC119291C4700DD7061 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -146,6 +148,7 @@
 		070DFAE21934A7A3004D958C /* Private */ = {
 			isa = PBXGroup;
 			children = (
+				077D49841934FAFD00E0AFC3 /* FFUserDefaults+Internal.h */,
 				070DFADD1934A72C004D958C /* FFUDProperty+Internal.h */,
 				070DFACD19349AFF004D958C /* FFUDProperty.h */,
 				070DFACE19349AFF004D958C /* FFUDProperty.m */,
@@ -272,6 +275,7 @@
 			files = (
 				070DFAD91934A6CC004D958C /* FFUserDefaults.h in Headers */,
 				070DFADC1934A6EA004D958C /* NSString+CamelCase.h in Headers */,
+				077D49861934FAFD00E0AFC3 /* FFUserDefaults+Internal.h in Headers */,
 				070DFADA1934A6D3004D958C /* FFUDProperty.h in Headers */,
 				070DFADF1934A72C004D958C /* FFUDProperty+Internal.h in Headers */,
 				070DFAE91934AB99004D958C /* FFUDImplementationFactory.h in Headers */,
