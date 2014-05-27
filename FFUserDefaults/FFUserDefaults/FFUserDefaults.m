@@ -253,10 +253,12 @@ static void *FFUDKVOContext = &FFUDKVOContext;
     NSArray *dynamicProperties = [self dynamicProperties];
     NSArray *getters = [dynamicProperties valueForKey:@"getter"];
     if ([getters containsObject:NSStringFromSelector(sel)]) {
+        class_addMethod(self, sel, (IMP)userDefaultsGetter, "@@:");
         return YES;
     }
     NSArray *setters = [dynamicProperties valueForKey:@"setter"];
     if ([setters containsObject:NSStringFromSelector(sel)]) {
+        class_addMethod(self, sel, (IMP)userDefaultsSetter, "v@:@");
         return YES;
     }
     
@@ -319,8 +321,8 @@ void userDefaultsSetter(FFUserDefaults *self, SEL _cmd, id newValue) {
 #pragma mark - KVO
 - (void)setupObservers
 {
-    NSUserDefaults *userDefaults = self.userDefaults; //[[self class ] userDefaults];
-    NSArray *keys = [[[self class] properties] valueForKey:@"name"];
+    NSUserDefaults *userDefaults = self.userDefaults;
+    NSArray *keys = [[[self class] dynamicProperties] valueForKey:@"name"];
     [keys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
         NSString *keyPath = [@"values." stringByAppendingString:key];
         [userDefaults addObserver:self forKeyPath:keyPath
@@ -331,8 +333,8 @@ void userDefaultsSetter(FFUserDefaults *self, SEL _cmd, id newValue) {
 
 - (void)tearDownObservers
 {
-    NSUserDefaults *userDefaults = self.userDefaults; //[[self class ] userDefaults];
-    NSArray *keys = [[[self class] properties] valueForKey:@"name"];
+    NSUserDefaults *userDefaults = self.userDefaults;
+    NSArray *keys = [[[self class] dynamicProperties] valueForKey:@"name"];
     [keys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
         NSString *keyPath = [@"values." stringByAppendingString:key];
         [userDefaults removeObserver:self forKeyPath:keyPath context:FFUDKVOContext];
@@ -343,7 +345,7 @@ void userDefaultsSetter(FFUserDefaults *self, SEL _cmd, id newValue) {
                         change:(NSDictionary *)change context:(void *)context
 {
     if (context == FFUDKVOContext) {
-        if (object == self.userDefaults /*[[self class ] userDefaults]*/) {
+        if (object == self.userDefaults) {
             NSString *key = [keyPath substringFromIndex:@"values.".length];
             [self willChangeValueForKey:key];
             [self didChangeValueForKey:key];
