@@ -229,16 +229,21 @@ static void *FFUDKVOContext = &FFUDKVOContext;
     return SharedFactory;
 }
 
-- (instancetype)init
+- (instancetype)initWithDefaults:(NSDictionary *)defaults
 {
     self = [super init];
     if (self) {
-//        self.properties = FFUDPropertiesOfClass([self class]);
+        if (defaults) {
+            [self.userDefaults registerDefaults:defaults];
+        }
+        //        self.properties = FFUDPropertiesOfClass([self class]);
         NSLog(@"Properties of %@:\n%@", NSStringFromClass([self class]), [[self class] dynamicProperties]);
         [self setupObservers];
     }
     return self;
 }
+
+- (instancetype)init { return [self initWithDefaults:nil]; }
 
 - (void)dealloc
 {

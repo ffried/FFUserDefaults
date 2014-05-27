@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong, readonly) NSUserDefaults *userDefaults;
 
+- (instancetype)initWithDefaults:(NSDictionary *)defaults;
+
 @end
