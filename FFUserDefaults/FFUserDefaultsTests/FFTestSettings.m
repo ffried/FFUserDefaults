@@ -13,9 +13,13 @@
 
 @implementation FFTestSettings
 
-@dynamic testBool;
+@dynamic testString;
 @dynamic testDate;
 @dynamic testObject;
+@dynamic testID;
+
+@dynamic testBool;
 @dynamic testTimeInterval;
+@dynamic testUInteger;
 
 @end

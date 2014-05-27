@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070DFACF19349AFF004D958C /* FFUDProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFACE19349AFF004D958C /* FFUDProperty.m */; };
+		070DFAD019349AFF004D958C /* FFUDProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFACE19349AFF004D958C /* FFUDProperty.m */; };
+		070DFAD319349C22004D958C /* NSString+CamelCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFAD219349C22004D958C /* NSString+CamelCase.m */; };
+		070DFAD419349C22004D958C /* NSString+CamelCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFAD219349C22004D958C /* NSString+CamelCase.m */; };
+		070DFAD61934A2BC004D958C /* FFNSStringCamelCaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFAD51934A2BC004D958C /* FFNSStringCamelCaseTests.m */; };
+		070DFAD91934A6CC004D958C /* FFUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 07856EFB19291CB200DD7061 /* FFUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		070DFADA1934A6D3004D958C /* FFUDProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFACD19349AFF004D958C /* FFUDProperty.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		070DFADC1934A6EA004D958C /* NSString+CamelCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFAD119349C22004D958C /* NSString+CamelCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		070DFADF1934A72C004D958C /* FFUDProperty+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFADD1934A72C004D958C /* FFUDProperty+Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		070DFAE91934AB99004D958C /* FFUDImplementationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFAE71934AB99004D958C /* FFUDImplementationFactory.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		070DFAEA1934AB99004D958C /* FFUDImplementationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFAE81934AB99004D958C /* FFUDImplementationFactory.m */; };
 		07856EF719291CB200DD7061 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07856EBD19291C4700DD7061 /* Foundation.framework */; };
 		07856EFC19291CB200DD7061 /* FFUserDefaults.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 07856EFB19291CB200DD7061 /* FFUserDefaults.h */; };
 		07856EFE19291CB200DD7061 /* FFUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 07856EFD19291CB200DD7061 /* FFUserDefaults.m */; };
@@ -27,8 +38,6 @@
 		07856F331929206D00DD7061 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07856F321929206D00DD7061 /* Images.xcassets */; };
 		07856F4E192920D600DD7061 /* FFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 07856F4D192920D600DD7061 /* FFSettings.m */; };
 		07856F51192921C300DD7061 /* FFTestSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 07856F50192921C300DD7061 /* FFTestSettings.m */; };
-		07856F551929311600DD7061 /* FFTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07856F531929311600DD7061 /* FFTestTableViewController.m */; };
-		07856F561929311600DD7061 /* FFTestTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07856F541929311600DD7061 /* FFTestTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +64,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		070DFACD19349AFF004D958C /* FFUDProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFUDProperty.h; sourceTree = "<group>"; };
+		070DFACE19349AFF004D958C /* FFUDProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFUDProperty.m; sourceTree = "<group>"; };
+		070DFAD119349C22004D958C /* NSString+CamelCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CamelCase.h"; sourceTree = "<group>"; };
+		070DFAD219349C22004D958C /* NSString+CamelCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CamelCase.m"; sourceTree = "<group>"; };
+		070DFAD51934A2BC004D958C /* FFNSStringCamelCaseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFNSStringCamelCaseTests.m; sourceTree = "<group>"; };
+		070DFADD1934A72C004D958C /* FFUDProperty+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FFUDProperty+Internal.h"; sourceTree = "<group>"; };
+		070DFAE71934AB99004D958C /* FFUDImplementationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFUDImplementationFactory.h; sourceTree = "<group>"; };
+		070DFAE81934AB99004D958C /* FFUDImplementationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFUDImplementationFactory.m; sourceTree = "<group>"; };
 		07856EBD19291C4700DD7061 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		07856EBF19291C4700DD7061 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		07856EC119291C4700DD7061 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -82,9 +99,6 @@
 		07856F4D192920D600DD7061 /* FFSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFSettings.m; sourceTree = "<group>"; };
 		07856F4F192921C300DD7061 /* FFTestSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTestSettings.h; sourceTree = "<group>"; };
 		07856F50192921C300DD7061 /* FFTestSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFTestSettings.m; sourceTree = "<group>"; };
-		07856F521929311600DD7061 /* FFTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTestTableViewController.h; sourceTree = "<group>"; };
-		07856F531929311600DD7061 /* FFTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFTestTableViewController.m; sourceTree = "<group>"; };
-		07856F541929311600DD7061 /* FFTestTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FFTestTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +134,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		070DFAD71934A64B004D958C /* TestObjects */ = {
+			isa = PBXGroup;
+			children = (
+				07856F4F192921C300DD7061 /* FFTestSettings.h */,
+				07856F50192921C300DD7061 /* FFTestSettings.m */,
+			);
+			name = TestObjects;
+			sourceTree = "<group>";
+		};
+		070DFAE21934A7A3004D958C /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				070DFADD1934A72C004D958C /* FFUDProperty+Internal.h */,
+				070DFACD19349AFF004D958C /* FFUDProperty.h */,
+				070DFACE19349AFF004D958C /* FFUDProperty.m */,
+				070DFAE71934AB99004D958C /* FFUDImplementationFactory.h */,
+				070DFAE81934AB99004D958C /* FFUDImplementationFactory.m */,
+			);
+			name = Private;
+			sourceTree = "<group>";
+		};
+		070DFAE31934A7AC004D958C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				070DFAD119349C22004D958C /* NSString+CamelCase.h */,
+				070DFAD219349C22004D958C /* NSString+CamelCase.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		07856EB119291C4700DD7061 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +199,8 @@
 		07856EF819291CB200DD7061 /* FFUserDefaults */ = {
 			isa = PBXGroup;
 			children = (
+				070DFAE21934A7A3004D958C /* Private */,
+				070DFAE31934A7AC004D958C /* Categories */,
 				07856EFB19291CB200DD7061 /* FFUserDefaults.h */,
 				07856EFD19291CB200DD7061 /* FFUserDefaults.m */,
 				07856EF919291CB200DD7061 /* Supporting Files */,
@@ -173,9 +219,9 @@
 		07856F0A19291CB200DD7061 /* FFUserDefaultsTests */ = {
 			isa = PBXGroup;
 			children = (
+				070DFAD71934A64B004D958C /* TestObjects */,
 				07856F1019291CB200DD7061 /* FFUserDefaultsTests.m */,
-				07856F4F192921C300DD7061 /* FFTestSettings.h */,
-				07856F50192921C300DD7061 /* FFTestSettings.m */,
+				070DFAD51934A2BC004D958C /* FFNSStringCamelCaseTests.m */,
 				07856F0B19291CB200DD7061 /* Supporting Files */,
 			);
 			path = FFUserDefaultsTests;
@@ -198,9 +244,6 @@
 				07856F2C1929206D00DD7061 /* Main.storyboard */,
 				07856F2F1929206D00DD7061 /* FFViewController.h */,
 				07856F301929206D00DD7061 /* FFViewController.m */,
-				07856F521929311600DD7061 /* FFTestTableViewController.h */,
-				07856F531929311600DD7061 /* FFTestTableViewController.m */,
-				07856F541929311600DD7061 /* FFTestTableViewController.xib */,
 				07856F4C192920D600DD7061 /* FFSettings.h */,
 				07856F4D192920D600DD7061 /* FFSettings.m */,
 				07856F321929206D00DD7061 /* Images.xcassets */,
@@ -222,6 +265,21 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		070DFAD81934A6AC004D958C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				070DFAD91934A6CC004D958C /* FFUserDefaults.h in Headers */,
+				070DFADC1934A6EA004D958C /* NSString+CamelCase.h in Headers */,
+				070DFADA1934A6D3004D958C /* FFUDProperty.h in Headers */,
+				070DFADF1934A72C004D958C /* FFUDProperty+Internal.h in Headers */,
+				070DFAE91934AB99004D958C /* FFUDImplementationFactory.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		07856EF519291CB200DD7061 /* FFUserDefaults */ = {
 			isa = PBXNativeTarget;
@@ -229,6 +287,7 @@
 			buildPhases = (
 				07856EF219291CB200DD7061 /* Sources */,
 				07856EF319291CB200DD7061 /* Frameworks */,
+				070DFAD81934A6AC004D958C /* Headers */,
 				07856EF419291CB200DD7061 /* CopyFiles */,
 			);
 			buildRules = (
@@ -324,7 +383,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				07856F331929206D00DD7061 /* Images.xcassets in Resources */,
-				07856F561929311600DD7061 /* FFTestTableViewController.xib in Resources */,
 				07856F251929206D00DD7061 /* InfoPlist.strings in Resources */,
 				07856F2E1929206D00DD7061 /* Main.storyboard in Resources */,
 			);
@@ -337,7 +395,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				070DFAEA1934AB99004D958C /* FFUDImplementationFactory.m in Sources */,
+				070DFAD319349C22004D958C /* NSString+CamelCase.m in Sources */,
 				07856EFE19291CB200DD7061 /* FFUserDefaults.m in Sources */,
+				070DFACF19349AFF004D958C /* FFUDProperty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +406,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				070DFAD419349C22004D958C /* NSString+CamelCase.m in Sources */,
 				07856F51192921C300DD7061 /* FFTestSettings.m in Sources */,
+				070DFAD019349AFF004D958C /* FFUDProperty.m in Sources */,
+				070DFAD61934A2BC004D958C /* FFNSStringCamelCaseTests.m in Sources */,
 				07856F1119291CB200DD7061 /* FFUserDefaultsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,7 +421,6 @@
 				07856F4E192920D600DD7061 /* FFSettings.m in Sources */,
 				07856F2B1929206D00DD7061 /* FFAppDelegate.m in Sources */,
 				07856F271929206D00DD7061 /* main.m in Sources */,
-				07856F551929311600DD7061 /* FFTestTableViewController.m in Sources */,
 				07856F311929206D00DD7061 /* FFViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,6 +664,7 @@
 				07856F471929206D00DD7061 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

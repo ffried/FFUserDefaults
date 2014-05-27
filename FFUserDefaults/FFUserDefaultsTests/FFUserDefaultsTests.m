@@ -34,12 +34,25 @@
     XCTAssertNotNil(self.testSettings, @"Settings must not be nil.");
 }
 
-- (void)testSetters
+- (void)testDateProperty
 {
-    self.testSettings.testBool = YES;
-    XCTAssertTrue(self.testSettings.testBool, @"testBool was set to yes but is no!");
-    self.testSettings.testString = @"Hello!";
-    XCTAssertEqual(self.testSettings.testString, @"Hello!", @"testString was set to \"Hello!\" but is %@", self.testSettings.testString);
+    NSDate *date = [NSDate date];
+    self.testSettings.testDate = date;
+    XCTAssertEqualObjects(self.testSettings.testDate, date, @"testDate was set to %@ but is %@!", date, self.testSettings.testDate);
+}
+
+- (void)testStringProperty
+{
+    NSString *string = @"String";
+    self.testSettings.testString = string;
+    XCTAssertEqual(self.testSettings.testString, string, @"testString was set to \"%@\" but is %@", string, self.testSettings.testString);
+}
+
+- (void)testBoolProperty
+{
+    BOOL testBool = YES;
+    self.testSettings.testBool = testBool;
+    XCTAssertEqual(testBool, self.testSettings.testBool, @"testBool was set to %@ but is %@", (testBool) ? @"YES" : @"NO", (self.testSettings.testBool) ? @"YES" : @"NO");
 }
 
 @end
