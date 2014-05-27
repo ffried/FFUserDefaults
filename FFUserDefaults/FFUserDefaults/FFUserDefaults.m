@@ -11,7 +11,6 @@
 #import "FFUDImplementationFactory.h"
 #import <objc/runtime.h>
 
-extern FFUDProperty *FFUDPropertyForObjCProperty(objc_property_t property);
 extern NSArray *FFUDPropertiesOfClass(Class class) {
     if (class == NULL) return nil;
     NSMutableArray *classProperties = [NSMutableArray array];

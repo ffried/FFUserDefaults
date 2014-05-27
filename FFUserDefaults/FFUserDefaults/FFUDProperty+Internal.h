@@ -7,6 +7,9 @@
 //
 
 #import "FFUDProperty.h"
+#import <objc/runtime.h>
+
+extern FFUDProperty *FFUDPropertyForObjCProperty(objc_property_t property);
 
 @interface FFUDProperty (Internal)
 
