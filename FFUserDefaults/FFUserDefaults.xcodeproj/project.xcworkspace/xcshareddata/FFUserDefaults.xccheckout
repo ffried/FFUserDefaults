@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B4C65748-6FBB-4B18-835D-89A5F20F3916</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FFUserDefaults</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>34602B73-CCCD-4361-8C96-56060D7449BF</key>
+		<string>ssh://github.com/ffried/FFUserDefaults.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FFUserDefaults/FFUserDefaults.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>34602B73-CCCD-4361-8C96-56060D7449BF</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/ffried/FFUserDefaults.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>34602B73-CCCD-4361-8C96-56060D7449BF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>34602B73-CCCD-4361-8C96-56060D7449BF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FFUserDefaults</string>
+		</dict>
+	</array>
+</dict>
+</plist>
