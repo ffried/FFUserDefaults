@@ -9,6 +9,14 @@
 #import "FFTestSettings.h"
 
 @implementation FFTestClass
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    return [self init];
+}
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    
+}
 @end
 
 @implementation FFTestSettings
@@ -31,9 +39,13 @@
 @dynamic testUInt;
 @dynamic testInt;
 
-
 @dynamic testShort;
 @dynamic testUShort;
 @dynamic testChar;
+
+@dynamic testInt8;
+@dynamic testInt16;
+@dynamic testInt32;
+@dynamic testInt64;
 
 @end

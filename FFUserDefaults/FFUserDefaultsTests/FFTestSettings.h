@@ -8,7 +8,7 @@
 
 #import "FFUserDefaults.h"
 
-@interface FFTestClass : NSObject
+@interface FFTestClass : NSObject <NSCoding>
 @end
 
 @interface FFTestSettings : FFUserDefaults
@@ -24,6 +24,7 @@
 @property (nonatomic) NSUInteger testUInteger;
 @property (nonatomic) NSInteger testInteger;
 
+# pragma mark - Just test properties
 @property (nonatomic) unsigned long long testUnsignedLongLong;
 @property (nonatomic) long long testLongLong;
 @property (nonatomic) unsigned long testUnsignedLong;
@@ -34,5 +35,10 @@
 @property (nonatomic) short testShort;
 @property (nonatomic) unsigned short testUShort;
 @property (nonatomic) char testChar;
+
+@property (nonatomic) u_int8_t testInt8;
+@property (nonatomic) u_int16_t testInt16;
+@property (nonatomic) u_int32_t testInt32;
+@property (nonatomic) u_int64_t testInt64;
 
 @end

@@ -42,19 +42,19 @@ extern NSString *FFUDPropertyNameForUDKey(NSString *userDefaultsKey)
 
 + (NSString *)fullTypeForPrimitiveShortType:(NSString *)type
 {
-    NSDictionary *types =  @{@"c": @"char",
+    NSDictionary *types =  @{@"B": @"bool",
                              @"d": @"double",
-                             @"i": @"int",
-                             @"q": @"integer",
                              @"f": @"float",
-                             @"l": @"long",
-                             @"L": @"unsignedLong",
+                             @"c": @"char",
+                             @"C": @"unsignedChar",
                              @"s": @"short",
                              @"S": @"unsignedShort",
-                             @"B": @"bool",
+                             @"i": @"int",
                              @"I": @"unsignedInt",
-                             @"Q": @"unsignedInteger"
-                             };
+                             @"l": @"long",
+                             @"L": @"unsignedLong",
+                             @"q": @"integer",
+                             @"Q": @"unsignedInteger"};
     //    @{@"^?": @"function pointer",
     //      @"^v", @"void pointer"};
     return types[type];
@@ -200,7 +200,7 @@ extern FFUDProperty *FFUDPropertyForObjCProperty(objc_property_t property) {
     prop.name = [NSString stringWithUTF8String:property_getName(property)];
     const char *attributes = property_getAttributes(property);
     char buffer[1 + strlen(attributes)];
-    printf("attributes=%s\n", attributes);
+//    printf("attributes=%s\n", attributes);
     strcpy(buffer, attributes);
     char *state = buffer, *attribute;
     while ((attribute = strsep(&state, ",")) != NULL) {
