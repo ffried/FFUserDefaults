@@ -145,7 +145,7 @@ unsigned short FFUDUnsignedShortGetter(FFUserDefaults *self, SEL _cmd) {
     return [FFUDGetter(self, _cmd) unsignedShortValue];
 }
 
-void FFUDUnicharSetter(FFUserDefaults *self, SEL _cmd, unsigned short s) {
+void FFUDUnsignedShortSetter(FFUserDefaults *self, SEL _cmd, unsigned short s) {
     return FFUDSetter(self, _cmd, @(s));
 }
 
@@ -167,9 +167,12 @@ void FFUDCharSetter(FFUserDefaults *self, SEL _cmd, char c) {
         FFUDPrimitiveGettersDictionary = @{@"c": [NSValue valueWithPointer:(IMP)FFUDCharGetter],
                                            @"d": [NSValue valueWithPointer:(IMP)FFUDDoubleGetter],
                                            @"i": [NSValue valueWithPointer:(IMP)FFUDIntGetter],
+                                           @"q": [NSValue valueWithPointer:(IMP)FFUDIntegerGetter],
                                            @"f": [NSValue valueWithPointer:(IMP)FFUDFloatGetter],
                                            @"l": [NSValue valueWithPointer:(IMP)FFUDLongGetter],
+                                           @"L": [NSValue valueWithPointer:(IMP)FFUDUnsignedLongGetter],
                                            @"s": [NSValue valueWithPointer:(IMP)FFUDShortGetter],
+                                           @"S": [NSValue valueWithPointer:(IMP)FFUDUnsignedShortGetter],
                                            @"B": [NSValue valueWithPointer:(IMP)FFUDBoolGetter],
                                            @"I": [NSValue valueWithPointer:(IMP)FFUDUnsignedIntGetter],
                                            @"Q": [NSValue valueWithPointer:(IMP)FFUDUnsignedIntegerGetter]
@@ -185,9 +188,12 @@ void FFUDCharSetter(FFUserDefaults *self, SEL _cmd, char c) {
         FFUDPrimitiveSettersDictionary = @{@"c": [NSValue valueWithPointer:(IMP)FFUDCharSetter],
                                            @"d": [NSValue valueWithPointer:(IMP)FFUDDoubleSetter],
                                            @"i": [NSValue valueWithPointer:(IMP)FFUDIntSetter],
+                                           @"q": [NSValue valueWithPointer:(IMP)FFUDIntegerSetter],
                                            @"f": [NSValue valueWithPointer:(IMP)FFUDFloatSetter],
                                            @"l": [NSValue valueWithPointer:(IMP)FFUDLongSetter],
+                                           @"L": [NSValue valueWithPointer:(IMP)FFUDUnsignedLongSetter],
                                            @"s": [NSValue valueWithPointer:(IMP)FFUDShortSetter],
+                                           @"S": [NSValue valueWithPointer:(IMP)FFUDUnsignedShortSetter],
                                            @"B": [NSValue valueWithPointer:(IMP)FFUDBoolSetter],
                                            @"I": [NSValue valueWithPointer:(IMP)FFUDUnsignedIntSetter],
                                            @"Q": [NSValue valueWithPointer:(IMP)FFUDUnsignedIntegerSetter]

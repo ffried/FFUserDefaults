@@ -20,6 +20,20 @@
 
 @dynamic testBool;
 @dynamic testTimeInterval;
+
 @dynamic testUInteger;
+@dynamic testInteger;
+
+@dynamic testUnsignedLongLong;
+@dynamic testLongLong;
+@dynamic testUnsignedLong;
+@dynamic testLong;
+@dynamic testUInt;
+@dynamic testInt;
+
+
+@dynamic testShort;
+@dynamic testUShort;
+@dynamic testChar;
 
 @end

@@ -11,6 +11,7 @@
 
 - (instancetype)camelCaseString
 {
+    // RegEx for splitting before each capital letter
     __autoreleasing NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(?<!([ ]))([A-Z](?![A-Z0-9])|([A-Z]+(?=[A-Z0-9])))"
                                                                            options:NSRegularExpressionDotMatchesLineSeparators
@@ -23,7 +24,8 @@
     NSMutableString *camelCaseString = [NSMutableString string];
     NSArray *parts = [result componentsSeparatedByString:@" "];
     [parts enumerateObjectsUsingBlock:^(NSString *part, NSUInteger idx, BOOL *stop) {
-        if (!part.length) return;
+        if (![part length]) return;
+        // Capitalize first letter
         NSString *firstLetter = [[part substringToIndex:1] capitalizedString];
         NSString *capitalizedPart = [part stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:firstLetter];
         [camelCaseString appendString:capitalizedPart];

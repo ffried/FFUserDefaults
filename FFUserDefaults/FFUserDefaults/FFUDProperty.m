@@ -45,9 +45,12 @@ extern NSString *FFUDPropertyNameForUDKey(NSString *userDefaultsKey)
     NSDictionary *types =  @{@"c": @"char",
                              @"d": @"double",
                              @"i": @"int",
+                             @"q": @"integer",
                              @"f": @"float",
                              @"l": @"long",
+                             @"L": @"unsignedLong",
                              @"s": @"short",
+                             @"S": @"unsignedShort",
                              @"B": @"bool",
                              @"I": @"unsignedInt",
                              @"Q": @"unsignedInteger"

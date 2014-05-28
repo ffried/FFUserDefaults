@@ -20,6 +20,19 @@
 
 @property (nonatomic, getter = isTestBool) BOOL testBool;
 @property (nonatomic) NSTimeInterval testTimeInterval;
+
 @property (nonatomic) NSUInteger testUInteger;
+@property (nonatomic) NSInteger testInteger;
+
+@property (nonatomic) unsigned long long testUnsignedLongLong;
+@property (nonatomic) long long testLongLong;
+@property (nonatomic) unsigned long testUnsignedLong;
+@property (nonatomic) long testLong;
+@property (nonatomic) unsigned int testUInt;
+@property (nonatomic) int testInt;
+
+@property (nonatomic) short testShort;
+@property (nonatomic) unsigned short testUShort;
+@property (nonatomic) char testChar;
 
 @end
