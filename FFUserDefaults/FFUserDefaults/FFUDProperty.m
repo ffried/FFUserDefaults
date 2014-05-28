@@ -42,22 +42,21 @@ extern NSString *FFUDPropertyNameForUDKey(NSString *userDefaultsKey)
 
 + (NSString *)fullTypeForPrimitiveShortType:(NSString *)type
 {
-    NSDictionary *types =  @{@"B": @"bool",
-                             @"d": @"double",
-                             @"f": @"float",
-                             @"c": @"char",
-                             @"C": @"unsignedChar",
-                             @"s": @"short",
-                             @"S": @"unsignedShort",
-                             @"i": @"int",
-                             @"I": @"unsignedInt",
-                             @"l": @"long",
-                             @"L": @"unsignedLong",
-                             @"q": @"integer",
-                             @"Q": @"unsignedInteger"};
-    //    @{@"^?": @"function pointer",
-    //      @"^v", @"void pointer"};
+    NSDictionary *types = @{@"B": @"bool",
+                            @"d": @"double",
+                            @"f": @"float",
+                            @"c": @"char",
+                            @"C": @"unsignedChar",
+                            @"s": @"short",
+                            @"S": @"unsignedShort",
+                            @"i": @"int",
+                            @"I": @"unsignedInt",
+                            @"l": @"long",
+                            @"L": @"unsignedLong",
+                            @"q": @"integer",
+                            @"Q": @"unsignedInteger"};
     return types[type];
+    // Also see: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html#//apple_ref/doc/uid/TP40008048-CH101-SW5
 }
 
 #pragma mark - NSSecureCoding

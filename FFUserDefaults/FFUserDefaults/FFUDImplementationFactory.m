@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, FFUDType) {
 };
 
 #pragma mark - Helpers
-extern inline NSString *FFUDKeyForSelector(FFUserDefaults *userDefaults, SEL selector, FFUDType type) {
+extern NSString *FFUDKeyForSelector(FFUserDefaults *userDefaults, SEL selector, FFUDType type) {
     NSArray *dynamicAccessors;
     switch (type) {
         case FFUDSetterType:
