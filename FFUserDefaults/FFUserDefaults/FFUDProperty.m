@@ -43,15 +43,15 @@ extern NSString *FFUDPropertyNameForUDKey(NSString *userDefaultsKey)
 + (NSString *)fullTypeForPrimitiveShortType:(NSString *)type
 {
     NSDictionary *types =  @{@"c": @"char",
-             @"d": @"double",
-             @"i": @"int",
-             @"f": @"float",
-             @"l": @"long",
-             @"s": @"short",
-             @"B": @"bool",
-             @"I": @"unsignedInt",
-             @"Q": @"unsignedInteger"
-             };
+                             @"d": @"double",
+                             @"i": @"int",
+                             @"f": @"float",
+                             @"l": @"long",
+                             @"s": @"short",
+                             @"B": @"bool",
+                             @"I": @"unsignedInt",
+                             @"Q": @"unsignedInteger"
+                             };
     //    @{@"^?": @"function pointer",
     //      @"^v", @"void pointer"};
     return types[type];

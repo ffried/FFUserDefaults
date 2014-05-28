@@ -12,6 +12,7 @@
 @interface FFUserDefaultsTests : XCTestCase
 @property (nonatomic, strong) FFTestSettings *testSettings;
 @property (nonatomic) NSString *kvoString;
+@property (nonatomic, strong) NSDate *defaultsTestDate;
 @end
 
 @implementation FFUserDefaultsTests
@@ -20,7 +21,8 @@
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    self.testSettings = [[FFTestSettings alloc] initWithDefaults:@{@"testDate": [NSDate date]}];
+    self.defaultsTestDate = [NSDate distantFuture];
+    self.testSettings = [[FFTestSettings alloc] initWithDefaults:@{@"testDate": self.defaultsTestDate}];
     [self.testSettings addObserver:self forKeyPath:@"testString" options:kNilOptions context:nil];
 }
 
@@ -65,12 +67,19 @@
     self.testSettings.testString = currentString;
 }
 
-//- (void)testBoolProperty
-//{
-//    BOOL testBool = YES;
-//    self.testSettings.testBool = testBool;
-//    XCTAssertEqual(testBool, self.testSettings.testBool, @"testBool was set to %@ but is %@", (testBool) ? @"YES" : @"NO", (self.testSettings.testBool) ? @"YES" : @"NO");
-//}
+- (void)testBoolProperty
+{
+    BOOL testBool = YES;
+    self.testSettings.testBool = testBool;
+    XCTAssertEqual(testBool, self.testSettings.testBool, @"testBool was set to %@ but is %@", (testBool) ? @"YES" : @"NO", (self.testSettings.testBool) ? @"YES" : @"NO");
+}
+
+- (void)testTimeIntervalProperty
+{
+    NSTimeInterval testTimeInterval = 234.54;
+    self.testSettings.testTimeInterval = testTimeInterval;
+    XCTAssertEqual(testTimeInterval, self.testSettings.testTimeInterval, @"testTimeInterval was set to %f but is %f", testTimeInterval, self.testSettings.testTimeInterval);
+}
 
 #pragma mark - KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
