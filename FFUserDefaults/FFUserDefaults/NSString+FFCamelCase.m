@@ -1,13 +1,13 @@
 //
-//  NSString+CamelCase.m
+//  NSString+FFCamelCase.m
 //
 //  Created by Florian Friedrich on 27.05.14.
 //  Copyright (c) 2014 Florian Friedrich. All rights reserved.
 //
 
-#import "NSString+CamelCase.h"
+#import "NSString+FFCamelCase.h"
 
-@implementation NSString (CamelCase)
+@implementation NSString (FFCamelCase)
 
 - (instancetype)camelCaseString
 {

@@ -10,4 +10,8 @@
 
 @implementation FFSettings
 
+@dynamic name;
+@dynamic reminderDate;
+@dynamic selected;
+
 @end

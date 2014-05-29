@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Florian Friedrich. All rights reserved.
 //
 
-#import "FFUserDefaults.h"
+#import <FFUserDefaults/FFUserDefaults.h>
 
 @interface FFTestClass : NSObject <NSCoding>
 @end

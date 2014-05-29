@@ -8,19 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		070DFACF19349AFF004D958C /* FFUDProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFACE19349AFF004D958C /* FFUDProperty.m */; };
-		070DFAD019349AFF004D958C /* FFUDProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFACE19349AFF004D958C /* FFUDProperty.m */; };
-		070DFAD319349C22004D958C /* NSString+CamelCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFAD219349C22004D958C /* NSString+CamelCase.m */; };
-		070DFAD419349C22004D958C /* NSString+CamelCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFAD219349C22004D958C /* NSString+CamelCase.m */; };
+		070DFAD319349C22004D958C /* NSString+FFCamelCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFAD219349C22004D958C /* NSString+FFCamelCase.m */; };
 		070DFAD61934A2BC004D958C /* FFNSStringCamelCaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFAD51934A2BC004D958C /* FFNSStringCamelCaseTests.m */; };
 		070DFAD91934A6CC004D958C /* FFUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 07856EFB19291CB200DD7061 /* FFUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		070DFADA1934A6D3004D958C /* FFUDProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFACD19349AFF004D958C /* FFUDProperty.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		070DFADC1934A6EA004D958C /* NSString+CamelCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFAD119349C22004D958C /* NSString+CamelCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		070DFADC1934A6EA004D958C /* NSString+FFCamelCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFAD119349C22004D958C /* NSString+FFCamelCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		070DFADF1934A72C004D958C /* FFUDProperty+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFADD1934A72C004D958C /* FFUDProperty+Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		070DFAE91934AB99004D958C /* FFUDImplementationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFAE71934AB99004D958C /* FFUDImplementationFactory.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		070DFAEA1934AB99004D958C /* FFUDImplementationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFAE81934AB99004D958C /* FFUDImplementationFactory.m */; };
+		0732F68F193695E400890DA1 /* libFFUserDefaults.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07856EF619291CB200DD7061 /* libFFUserDefaults.a */; };
+		0732F691193696FF00890DA1 /* FFUserDefaults-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 07856EFA19291CB200DD7061 /* FFUserDefaults-Prefix.pch */; };
 		077D49861934FAFD00E0AFC3 /* FFUserDefaults+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D49841934FAFD00E0AFC3 /* FFUserDefaults+Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		07856EF719291CB200DD7061 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07856EBD19291C4700DD7061 /* Foundation.framework */; };
-		07856EFC19291CB200DD7061 /* FFUserDefaults.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 07856EFB19291CB200DD7061 /* FFUserDefaults.h */; };
 		07856EFE19291CB200DD7061 /* FFUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 07856EFD19291CB200DD7061 /* FFUserDefaults.m */; };
 		07856F0419291CB200DD7061 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07856EDC19291C4700DD7061 /* XCTest.framework */; };
 		07856F0519291CB200DD7061 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07856EBD19291C4700DD7061 /* Foundation.framework */; };
@@ -42,6 +41,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0732F68D193695D200890DA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07856EB219291C4700DD7061 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07856EF519291CB200DD7061;
+			remoteInfo = FFUserDefaults;
+		};
 		07856F0719291CB200DD7061 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 07856EB219291C4700DD7061 /* Project object */;
@@ -51,24 +57,11 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		07856EF419291CB200DD7061 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				07856EFC19291CB200DD7061 /* FFUserDefaults.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		070DFACD19349AFF004D958C /* FFUDProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFUDProperty.h; sourceTree = "<group>"; };
 		070DFACE19349AFF004D958C /* FFUDProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFUDProperty.m; sourceTree = "<group>"; };
-		070DFAD119349C22004D958C /* NSString+CamelCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CamelCase.h"; sourceTree = "<group>"; };
-		070DFAD219349C22004D958C /* NSString+CamelCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CamelCase.m"; sourceTree = "<group>"; };
+		070DFAD119349C22004D958C /* NSString+FFCamelCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FFCamelCase.h"; sourceTree = "<group>"; };
+		070DFAD219349C22004D958C /* NSString+FFCamelCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FFCamelCase.m"; sourceTree = "<group>"; };
 		070DFAD51934A2BC004D958C /* FFNSStringCamelCaseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFNSStringCamelCaseTests.m; sourceTree = "<group>"; };
 		070DFADD1934A72C004D958C /* FFUDProperty+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FFUDProperty+Internal.h"; sourceTree = "<group>"; };
 		070DFAE71934AB99004D958C /* FFUDImplementationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFUDImplementationFactory.h; sourceTree = "<group>"; };
@@ -127,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0732F68F193695E400890DA1 /* libFFUserDefaults.a in Frameworks */,
 				07856F1E1929206D00DD7061 /* CoreGraphics.framework in Frameworks */,
 				07856F1F1929206D00DD7061 /* UIKit.framework in Frameworks */,
 				07856F1D1929206D00DD7061 /* Foundation.framework in Frameworks */,
@@ -161,8 +155,8 @@
 		070DFAE31934A7AC004D958C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				070DFAD119349C22004D958C /* NSString+CamelCase.h */,
-				070DFAD219349C22004D958C /* NSString+CamelCase.m */,
+				070DFAD119349C22004D958C /* NSString+FFCamelCase.h */,
+				070DFAD219349C22004D958C /* NSString+FFCamelCase.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -274,11 +268,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				070DFAD91934A6CC004D958C /* FFUserDefaults.h in Headers */,
-				070DFADC1934A6EA004D958C /* NSString+CamelCase.h in Headers */,
+				070DFADC1934A6EA004D958C /* NSString+FFCamelCase.h in Headers */,
 				077D49861934FAFD00E0AFC3 /* FFUserDefaults+Internal.h in Headers */,
 				070DFADA1934A6D3004D958C /* FFUDProperty.h in Headers */,
 				070DFADF1934A72C004D958C /* FFUDProperty+Internal.h in Headers */,
 				070DFAE91934AB99004D958C /* FFUDImplementationFactory.h in Headers */,
+				0732F691193696FF00890DA1 /* FFUserDefaults-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +287,6 @@
 				07856EF219291CB200DD7061 /* Sources */,
 				07856EF319291CB200DD7061 /* Frameworks */,
 				070DFAD81934A6AC004D958C /* Headers */,
-				07856EF419291CB200DD7061 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -332,6 +326,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0732F68E193695D200890DA1 /* PBXTargetDependency */,
 			);
 			name = "FFUserDefaults Sample";
 			productName = "FFUserDefaults Sample";
@@ -400,7 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				070DFAEA1934AB99004D958C /* FFUDImplementationFactory.m in Sources */,
-				070DFAD319349C22004D958C /* NSString+CamelCase.m in Sources */,
+				070DFAD319349C22004D958C /* NSString+FFCamelCase.m in Sources */,
 				07856EFE19291CB200DD7061 /* FFUserDefaults.m in Sources */,
 				070DFACF19349AFF004D958C /* FFUDProperty.m in Sources */,
 			);
@@ -410,9 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				070DFAD419349C22004D958C /* NSString+CamelCase.m in Sources */,
 				07856F51192921C300DD7061 /* FFTestSettings.m in Sources */,
-				070DFAD019349AFF004D958C /* FFUDProperty.m in Sources */,
 				070DFAD61934A2BC004D958C /* FFNSStringCamelCaseTests.m in Sources */,
 				07856F1119291CB200DD7061 /* FFUserDefaultsTests.m in Sources */,
 			);
@@ -432,6 +425,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0732F68E193695D200890DA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07856EF519291CB200DD7061 /* FFUserDefaults */;
+			targetProxy = 0732F68D193695D200890DA1 /* PBXContainerItemProxy */;
+		};
 		07856F0819291CB200DD7061 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 07856EF519291CB200DD7061 /* FFUserDefaults */;
@@ -499,7 +497,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -531,7 +529,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -580,6 +578,12 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "FFUserDefaultsTests/FFUserDefaultsTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -596,6 +600,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FFUserDefaults/FFUserDefaults-Prefix.pch";
 				INFOPLIST_FILE = "FFUserDefaultsTests/FFUserDefaultsTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -612,7 +622,12 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "FFUserDefaults Sample/FFUserDefaults Sample-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -625,7 +640,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FFUserDefaults Sample/FFUserDefaults Sample-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "FFUserDefaults Sample/FFUserDefaults Sample-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

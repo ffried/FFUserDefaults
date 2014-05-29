@@ -6,8 +6,12 @@
 //  Copyright (c) 2014 Florian Friedrich. All rights reserved.
 //
 
-#import "FFUserDefaults.h"
+#import <FFUserDefaults/FFUserDefaults.h>
 
 @interface FFSettings : FFUserDefaults
+
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSDate *reminderDate;
+@property (nonatomic, getter = isSelected) BOOL selected;
 
 @end

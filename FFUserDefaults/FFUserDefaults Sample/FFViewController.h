@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FFViewController : UIViewController
+@class FFSettings;
+@interface FFViewController : UIViewController <UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet FFSettings *settings;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UILabel *reminderDateLabel;
+@property (weak, nonatomic) IBOutlet UIDatePicker *reminderDatePicker;
+@property (weak, nonatomic) IBOutlet UILabel *selectedLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *selectedSwitch;
+
+- (IBAction)reminderDatePickerChanged:(id)sender;
+- (IBAction)selectedSwitchChanged:(id)sender;
 
 @end

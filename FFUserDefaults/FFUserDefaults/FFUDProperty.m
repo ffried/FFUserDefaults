@@ -7,7 +7,7 @@
 //
 
 #import "FFUDProperty+Internal.h"
-#import "NSString+CamelCase.h"
+#import "NSString+FFCamelCase.h"
 #import <objc/runtime.h>
 
 static NSString *const FFUDKeyPrefix = @"FFUD";

@@ -23,7 +23,7 @@
     // Put setup code here. This method is called before the invocation of each test method in the class.
     self.defaultsTestDate = [NSDate distantFuture];
     self.testSettings = [[FFTestSettings alloc] initWithDefaults:@{@"testDate": self.defaultsTestDate}];
-    [self.testSettings addObserver:self forKeyPath:@"testString" options:kNilOptions context:nil];
+    [self.testSettings addObserver:self forKeyPath:@"testString" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)tearDown
@@ -65,6 +65,21 @@
     XCTAssertEqualObjects(self.kvoString, newString, @"The kvoString should be %@, but is %@", newString, self.kvoString);
     
     self.testSettings.testString = currentString;
+}
+
+- (void)testKVC
+{
+    NSString *testString = @"TestString";
+    [self.testSettings setValue:testString forKey:@"testString"];
+    NSString *newString = [self.testSettings valueForKey:@"testString"];
+    XCTAssertEqualObjects(self.testSettings.testString, testString, @"testString was set to \"%@\" but is %@", testString, self.testSettings.testString);
+    XCTAssertEqualObjects(newString, testString, @"testString was set to \"%@\" but is %@", testString, newString);
+    
+    NSTimeInterval testTimeInterval = 5623.34;
+    [self.testSettings setValue:@(testTimeInterval) forKey:@"testTimeInterval"];
+    NSTimeInterval newTimeInterval = [[self.testSettings valueForKey:@"testTimeInterval"] doubleValue];
+    XCTAssertEqual(self.testSettings.testTimeInterval, testTimeInterval, @"testTimeInterval was set to %f but is %f", testTimeInterval, self.testSettings.testTimeInterval);
+    XCTAssertEqual(newTimeInterval, testTimeInterval, @"testTimeInterval was set to %f but is %f", testTimeInterval, newTimeInterval);
 }
 
 - (void)testBoolProperty

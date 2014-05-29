@@ -14,7 +14,6 @@
 extern NSArray *FFUDPropertiesOfClass(Class class) {
     if (class == NULL) return nil;
     NSMutableArray *classProperties = [NSMutableArray array];
-    
     unsigned int outCount, i;
     objc_property_t *properties = class_copyPropertyList(class, &outCount);
     for (i = 0; i < outCount; i++) {
@@ -25,9 +24,6 @@ extern NSArray *FFUDPropertiesOfClass(Class class) {
     free(properties);
     return [NSArray arrayWithArray:classProperties];
 }
-
-@interface FFUserDefaults ()
-@end
 
 @implementation FFUserDefaults
 static void *FFUDKVOContext = &FFUDKVOContext;
@@ -82,6 +78,48 @@ static NSString *const FFNSUDValuesPrefix = @""; // Just in case NSUserDefaults 
     }
     
     return [super resolveInstanceMethod:sel];
+}
+
+#pragma mark - KVC
+- (id)valueForKey:(NSString *)key
+{
+    __block BOOL found = NO;
+    __block id value = nil;
+    [[[self class] dynamicProperties] enumerateObjectsUsingBlock:^(FFUDProperty *property, NSUInteger idx, BOOL *stop) {
+        if ([property.name isEqualToString:key] || [property.getter isEqualToString:key]) {
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+//            value = [self performSelector:NSSelectorFromString(property.getter)];
+//#pragma clang diagnostic pop
+            value = [self.userDefaults objectForKey:FFUDKeyForPropertyName(property.name)];
+            found = YES;
+            *stop = YES;
+        }
+    }];
+    if (!found) {
+        return [super valueForKey:key];
+    } else {
+        return value;
+    }
+}
+
+- (void)setValue:(id)value forKey:(NSString *)key
+{
+    __block BOOL found = NO;
+    [[[self class] dynamicProperties] enumerateObjectsUsingBlock:^(FFUDProperty *property, NSUInteger idx, BOOL *stop) {
+        if ([property.name isEqualToString:key] || [property.setter isEqualToString:key]) {
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+//            [self performSelector:NSSelectorFromString(property.setter) withObject:value];
+//#pragma clang diagnostic pop
+            [self.userDefaults setObject:value forKey:FFUDKeyForPropertyName(property.name)];
+            found = YES;
+            *stop = YES;
+        }
+    }];
+    if (!found) {
+        return [super setValue:value forKey:key];
+    }
 }
 
 #pragma mark - Class Properties

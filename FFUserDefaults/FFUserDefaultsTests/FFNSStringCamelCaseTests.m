@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "NSString+CamelCase.h"
+#import <FFUserDefaults/NSString+FFCamelCase.h>
 
 @interface FFNSStringCamelCaseTests : XCTestCase
 
@@ -32,7 +32,7 @@
     NSString *input = @"ThisIsMyUTF8Library With greatStuffFor9Elements";
     NSString *expectedOutput = @"ThisIsMyUTF8LibraryWithGreatStuffFor9Elements";
     NSString *camelCase = [input camelCaseString];
-    XCTAssertEqualObjects(camelCase, expectedOutput, @"Camel case is: %@\nBut should be: %@", camelCase, expectedOutput);
+    XCTAssertEqualObjects(camelCase, expectedOutput, @"CamelCase is: %@\nBut should be: %@", camelCase, expectedOutput);
 }
 
 @end
