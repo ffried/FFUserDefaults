@@ -6,19 +6,28 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0732F6D81937AEAD00890DA1 /* UniversalLib */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0732F6D91937AEAD00890DA1 /* Build configuration list for PBXAggregateTarget "UniversalLib" */;
+			buildPhases = (
+				0732F6DC1937AEBF00890DA1 /* Run Script */,
+			);
+			dependencies = (
+			);
+			name = UniversalLib;
+			productName = UniversalLib;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		070DFACF19349AFF004D958C /* FFUDProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFACE19349AFF004D958C /* FFUDProperty.m */; };
 		070DFAD319349C22004D958C /* NSString+FFCamelCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFAD219349C22004D958C /* NSString+FFCamelCase.m */; };
 		070DFAD61934A2BC004D958C /* FFNSStringCamelCaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFAD51934A2BC004D958C /* FFNSStringCamelCaseTests.m */; };
-		070DFAD91934A6CC004D958C /* FFUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 07856EFB19291CB200DD7061 /* FFUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		070DFADA1934A6D3004D958C /* FFUDProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFACD19349AFF004D958C /* FFUDProperty.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		070DFADC1934A6EA004D958C /* NSString+FFCamelCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFAD119349C22004D958C /* NSString+FFCamelCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		070DFADF1934A72C004D958C /* FFUDProperty+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFADD1934A72C004D958C /* FFUDProperty+Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		070DFAE91934AB99004D958C /* FFUDImplementationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 070DFAE71934AB99004D958C /* FFUDImplementationFactory.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		070DFAEA1934AB99004D958C /* FFUDImplementationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DFAE81934AB99004D958C /* FFUDImplementationFactory.m */; };
 		0732F68F193695E400890DA1 /* libFFUserDefaults.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07856EF619291CB200DD7061 /* libFFUserDefaults.a */; };
-		0732F691193696FF00890DA1 /* FFUserDefaults-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 07856EFA19291CB200DD7061 /* FFUserDefaults-Prefix.pch */; };
-		077D49861934FAFD00E0AFC3 /* FFUserDefaults+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 077D49841934FAFD00E0AFC3 /* FFUserDefaults+Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0732F6D61937AD8800890DA1 /* NSString+FFCamelCase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 070DFAD119349C22004D958C /* NSString+FFCamelCase.h */; };
+		0732F6D71937AD8800890DA1 /* FFUserDefaults.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 07856EFB19291CB200DD7061 /* FFUserDefaults.h */; };
 		07856EF719291CB200DD7061 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07856EBD19291C4700DD7061 /* Foundation.framework */; };
 		07856EFE19291CB200DD7061 /* FFUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 07856EFD19291CB200DD7061 /* FFUserDefaults.m */; };
 		07856F0419291CB200DD7061 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07856EDC19291C4700DD7061 /* XCTest.framework */; };
@@ -56,6 +65,20 @@
 			remoteInfo = FFUserDefaults;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0732F6D51937AD6800890DA1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				0732F6D61937AD8800890DA1 /* NSString+FFCamelCase.h in CopyFiles */,
+				0732F6D71937AD8800890DA1 /* FFUserDefaults.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		070DFACD19349AFF004D958C /* FFUDProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFUDProperty.h; sourceTree = "<group>"; };
@@ -262,23 +285,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		070DFAD81934A6AC004D958C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				070DFAD91934A6CC004D958C /* FFUserDefaults.h in Headers */,
-				070DFADC1934A6EA004D958C /* NSString+FFCamelCase.h in Headers */,
-				077D49861934FAFD00E0AFC3 /* FFUserDefaults+Internal.h in Headers */,
-				070DFADA1934A6D3004D958C /* FFUDProperty.h in Headers */,
-				070DFADF1934A72C004D958C /* FFUDProperty+Internal.h in Headers */,
-				070DFAE91934AB99004D958C /* FFUDImplementationFactory.h in Headers */,
-				0732F691193696FF00890DA1 /* FFUserDefaults-Prefix.pch in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		07856EF519291CB200DD7061 /* FFUserDefaults */ = {
 			isa = PBXNativeTarget;
@@ -286,7 +292,7 @@
 			buildPhases = (
 				07856EF219291CB200DD7061 /* Sources */,
 				07856EF319291CB200DD7061 /* Frameworks */,
-				070DFAD81934A6AC004D958C /* Headers */,
+				0732F6D51937AD6800890DA1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -344,7 +350,7 @@
 				ORGANIZATIONNAME = "Florian Friedrich";
 				TargetAttributes = {
 					07856F0219291CB200DD7061 = {
-						TestTargetID = 07856EF519291CB200DD7061;
+						TestTargetID = 07856F1B1929206D00DD7061;
 					};
 				};
 			};
@@ -364,6 +370,7 @@
 				07856EF519291CB200DD7061 /* FFUserDefaults */,
 				07856F0219291CB200DD7061 /* FFUserDefaultsTests */,
 				07856F1B1929206D00DD7061 /* FFUserDefaults Sample */,
+				0732F6D81937AEAD00890DA1 /* UniversalLib */,
 			);
 		};
 /* End PBXProject section */
@@ -388,6 +395,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0732F6DC1937AEBF00890DA1 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target FFUserDefaults ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target FFUserDefaults -configuration ${CONFIGURATION} -sdk iphonesimulator -arch i386 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 2. Create universal binary file using lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/lib${PROJECT_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PROJECT_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${PROJECT_NAME}.a\"\n\n# Last touch. copy the header files. Just for convenience\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/include\" \"${UNIVERSAL_OUTPUTFOLDER}/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		07856EF219291CB200DD7061 /* Sources */ = {
@@ -465,6 +489,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0732F6DA1937AEAD00890DA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0732F6DB1937AEAD00890DA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		07856EEA19291C4800DD7061 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -498,7 +536,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -566,6 +603,7 @@
 		07856F1619291CB200DD7061 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FFUserDefaults Sample.app/FFUserDefaults Sample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -585,6 +623,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -592,6 +631,7 @@
 		07856F1719291CB200DD7061 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FFUserDefaults Sample.app/FFUserDefaults Sample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -607,6 +647,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -654,6 +695,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0732F6D91937AEAD00890DA1 /* Build configuration list for PBXAggregateTarget "UniversalLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0732F6DA1937AEAD00890DA1 /* Debug */,
+				0732F6DB1937AEAD00890DA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		07856EB519291C4700DD7061 /* Build configuration list for PBXProject "FFUserDefaults" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
